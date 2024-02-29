@@ -30,27 +30,19 @@
           height="160"
           loop="true"
         ></video>
-        <a-asset-item id="inh1" src="./inh.glb"></a-asset-item>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0">
-        <!-- <a-plane
+        <a-plane
           src="#card"
           position="0 0 0"
-          width="0.552"
-          height="1"
+          width="1"
+          height="0.552"
           scale="2 2 1"
           rotation="0 0 0"
-        ></a-plane> -->
-        <a-entity
-          gltf-model="#inh1"
-          position="0 -0.25 0"
-          scale="1 1 1"
-          rotation="0 0 0"
-          animation="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true"
-        ></a-entity>
+        ></a-plane>
       </a-entity>
     </a-scene>
 
@@ -66,9 +58,7 @@
         padding: 20pt;
       "
     >
-      <p>
-        Inhalador prototipo. (aun en desarrollo...)
-      </p>
+      <p>Da click para darle vueltas a la caja de Suganon</p>
     </div>
   </body>
 </html>
