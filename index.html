@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>AR Suganon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="./index.js"></script>
+  </head>
+  <body>
+    <script>
+      function playVideo() {
+        var video = document.getElementById("card");
+        video.play();
+        var introMsg = document.getElementById("introMsg");
+        introMsg.style.display = "none";
+      }
+    </script>
+    <a-scene
+      mindar-image="imageTargetSrc: ./target.mind; filterMinCF:0.0001; filterBeta: 0.001;"
+      color-space="sRGB"
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+      onclick="playVideo()"
+    >
+      <a-assets>
+        <video
+          id="card"
+          preload="auto"
+          src="./video.mp4"
+          width="90"
+          height="160"
+          loop="true"
+        ></video>
+        <a-asset-item id="inh1" src="./inh1.glb"></a-asset-item>
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-plane
+          src="#card"
+          position="0 0 0"
+          width="0.552"
+          height="1"
+          scale="2 2 1"
+          rotation="0 0 0"
+        ></a-plane>
+        <!-- <a-entity
+          gltf-model="#inh1"
+          position="-1.4 -0.8 1"
+          scale="0.2 0.2 0.2"
+          rotation="90 0 0"
+          animation="property: rotation; to: 450 0 0; dur: 10000; easing: linear; loop: true"
+        ></a-entity> -->
+      </a-entity>
+    </a-scene>
+
+    <div
+      id="introMsg"
+      style="
+        background-color: white;
+        z-index: 1000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60%;
+        padding: 20pt;
+      "
+    >
+      <p>
+        Apunta a la imagen del roll-up para ver el video. Luego da click para
+        comenzar.
+      </p>
+    </div>
+  </body>
+</html>
