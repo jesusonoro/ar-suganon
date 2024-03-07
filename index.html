@@ -22,13 +22,14 @@
       onclick="playVideo()"
     >
       <a-assets>
+        <a-asset-item id="caja" src="/caja_suganon.glb"></a-asset-item>
         <video
           id="card"
           preload="auto"
-          src="./video.mp4"
-          width="90"
-          height="160"
-          loop="true"
+          src="./suganon_video.mp4"
+          width="160"
+          height="90"
+          loop="false"
         ></video>
       </a-assets>
 
@@ -40,9 +41,16 @@
           position="0 0 0"
           width="1"
           height="0.552"
-          scale="2 2 1"
+          scale="1 1 1"
           rotation="0 0 0"
         ></a-plane>
+        <a-entity
+          gltf-model="#caja"
+          position="0 -0.8 0.4"
+          scale="0.2 0.2 0.2"
+          rotation="0 0 0"
+          animation="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true"
+        ></a-entity>
       </a-entity>
     </a-scene>
 
@@ -54,8 +62,9 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 60%;
-        padding: 20pt;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 10pt;
       "
     >
       <p>Da click para darle vueltas a la caja de Suganon</p>
